@@ -1,23 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import showSearchResults from './utils/API'
+import ItemDetails from './components/ItemDetails'
 
-function App() {
+const App = () => {
+
+  const [data, setData] = useState({hits: [], query: ''})
+  const [searchParam, setSearchParam] = useState('')
+
+  const handleFormSubmit = () => {
+    if (!searchParam) return
+    showSearchResults(searchParam, setData)
+    setSearchParam('')
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="mainContainer">
+      <div className="newBaner">
+        <div className="container">
+          <h2 className="pt-5">
+            Search for your product <br/>
+          </h2>
+          <div className ="ui icon input">
+            <input 
+              type="text"
+              placeholder="enter product name..."
+              name='searchParam'
+              value={searchParam}
+              onChange={event => setSearchParam(event.target.value)} 
+            />
+            <button className = 'ui icon inverted green button' onClick={handleFormSubmit}>
+              <i className ="large search link icon"></i>
+            </button>
+          </div>
+          {data.query && ( 
+            <h3>
+            Cool results retriever for: &nbsp;  
+              <code>
+            {data.query}
+              </code>
+            </h3>
+          )}
+          <div className="container p-4">
+            <div className="ui four cards">
+                {data.hits.map(item => (
+                <ItemDetails
+                  key={item.Sku}
+                  name={item.Name}
+                  description={item.Description}
+                  sku={item.Sku}
+                  ups={item.Upc}
+                />
+                ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
