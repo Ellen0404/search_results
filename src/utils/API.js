@@ -16,7 +16,6 @@ const showSearchResults = (searchParam, setData) => {
                 alert("Not a valid search parameter!")
                 return 
             } 
-            console.log(response)
             setData(response.data)
         })
         .catch(error => {
