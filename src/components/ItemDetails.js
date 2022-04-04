@@ -8,7 +8,7 @@ const ItemDetails = ({name, sku, ups, description}) => {
                 <div className="header">{name}</div>
                 <div className="description">
                     <i className="info green circle icon"></i>
-                    {description || 'No discription found for the product'}            
+                    {description || 'No description found for the product'}            
                 </div>
             </div>
             <div className="ui secondary  segment">
