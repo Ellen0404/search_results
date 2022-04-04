@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.mainContainer {
+  text-align: center;
+}
+
+.newBaner{
+  height: 100vh;
+  background-color: #b8cbf0;
+  color: white;
+  align-items: center;
+  justify-content: center;
+}
