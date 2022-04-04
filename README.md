@@ -4,10 +4,16 @@
  React basic search result page based upon a basic product API
 
  ## User story
-React component that has a form with First Name, Last Name, and a submit button. 
-When clicking Submit it adds the name to a list of customers.
-The list appears below the form and has a delete button which removes them.
-When adding a customer to the list validate that you might be adding a duplicate, but then allow them to add them anyway.
+React search result page with search bar and dynamic search parameter.  
+The API staging endpoint as exposed by the Algolia search engine provides real data with a custom number of results ( 8 hitsPerPage ). 
+Basic validation is applied which won't send any request to the search engine if no parament is provided as well as let users know if the parameter they are trying to search for isn't valid. 
+Semantic UI library was used for a basic styling. 
+Product information provided on the UI is : 
+> - Product Name
+> - Product description
+> - SKU
+> - UPS 
+
 
 
 ### To run the application:
@@ -18,10 +24,10 @@ or use deployed - [ link ](#Link-to-the-Deployed-App)
 
 
 > ## Hightlights:
-> - React Components
-> - React Hooks
-> - API endpoint
-> - Axios call with dynamic search parameter
+> - React Functional Components
+> - Semantic UI library
+> - API endpoint triggered by axios call 
+> - Dynamic search parameter
 > - Search bar <br></br>
 
 
